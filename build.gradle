@@ -1,0 +1,41 @@
+buildscript {
+	ext {
+		springBootVersion = "2.2.1.RELEASE"
+	}
+
+	repositories {
+		mavenLocal()
+		mavenCentral()
+		maven { url "https://maven.aliyun.com/repository/gradle-plugin"}
+	}
+
+	dependencies {
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+	}
+}
+
+allprojects {
+	apply plugin: 'java'
+	apply plugin: 'io.spring.dependency-management'
+	apply plugin: 'maven-publish'
+
+	group = 'top.byoung'
+	version = '0.0.1-SNAPSHOT'
+	sourceCompatibility = '1.8'
+
+	repositories {
+		mavenLocal()
+		mavenCentral()
+		maven { url "https://maven.aliyun.com/repository/gradle-plugin"}
+	}
+
+	dependencyManagement {
+		imports {
+			mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+		}
+	}
+
+	dependencies {
+
+	}
+}

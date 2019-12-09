@@ -1,0 +1,7 @@
+server:
+  port: 8080
+spring:
+  rpc:
+    register-address: localhost:2181
+    server-name: consumer
+    timeout: 2000

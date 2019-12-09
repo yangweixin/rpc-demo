@@ -1,0 +1,7 @@
+spring:
+  rpc:
+    host: localhost
+    port: 21810
+    register-address: localhost:2181
+    server-name: provider
+    timeout: 2000

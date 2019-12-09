@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  top.byoung.demo.rpc.starter.config.RpcAutoConfiguration,\
+  top.byoung.demo.rpc.starter.config.ProviderAutoConfiguration,\
+  top.byoung.demo.rpc.starter.config.ConsumerAutoConfiguration

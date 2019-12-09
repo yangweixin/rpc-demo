@@ -1,0 +1,30 @@
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter:${springBootVersion}"
+    testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}") {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    compile group: 'org.apache.zookeeper', name: 'zookeeper', version: '3.5.6'
+    compile group: 'com.dyuproject.protostuff', name: 'protostuff-core', version: '1.1.5'
+    compile group: 'com.dyuproject.protostuff', name: 'protostuff-runtime', version: '1.1.5'
+    compile group: 'org.objenesis', name: 'objenesis', version: '3.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier = "sources"
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+        }
+    }
+}
+
+
